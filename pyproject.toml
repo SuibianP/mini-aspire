@@ -1,0 +1,23 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+required_plugins = [
+    "pytest-flask",
+    "pytest-flask-sqlalchemy",
+    "pytest-env",
+    "pytest-depends"
+]
+testpaths = [
+    "tests"
+]
+env = [
+ "FLASK_DEBUG=1",
+ "FLASK_ENV=development",
+ "TESTING=1"
+]
