@@ -22,11 +22,15 @@ Choose one of the two methods below.
 2. Execute `pip install <the directory>`
 
 ### Testing out
-```python
+Execute `python -m mini_aspire`.
 
-```
+Note that the testing server should not be used for production.
 
 ### Deployment
 
-The testing server should not be used for production. Please refer to <https://flask.palletsprojects.com/en/2.0.x/deploying/index.html>
+Please refer to <https://flask.palletsprojects.com/en/2.0.x/deploying/index.html>
 for a list of viable production deployment options.
+
+### Documentation
+
+The documentation is automatically generated at the base endpoint.
