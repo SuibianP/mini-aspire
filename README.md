@@ -34,3 +34,7 @@ for a list of viable production deployment options.
 ### Documentation
 
 The documentation is automatically generated at the base endpoint.
+
+### Limitations
+
+See [TODO](TODO) for a list of current limitations.
