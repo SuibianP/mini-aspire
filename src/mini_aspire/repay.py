@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Repay requests
+"""
+
 from flask import Blueprint, current_app
 from flask_restx import Resource, reqparse, Api
 
@@ -20,6 +24,9 @@ repay_api = Api(repay_blueprint, authorizations={
 @repay_api.response(403, 'Loan does not belong to the current user')
 @repay_api.response(400, 'Parameter error')
 class Repay(Resource):
+    """
+    Repayment handling
+    """
     patch_parser = reqparse.RequestParser()
     patch_parser.add_argument('amount', type=int, required=True, help='The repay amount')
 

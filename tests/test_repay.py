@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 
+"""
+Test loan repayment functionalities
+"""
+
 import pytest
 
 from mini_aspire.data import add_loan
 
 
 def endpoint_of(index):
+    """
+    Utility method to get the URL of a loan resource
+    """
     return f"/loan/{index}"
 
 
 @pytest.mark.depends(name='test_apply.py::test_apply_success')
 def test_repay_success(client):
+    """
+    Test a successful repayment
+    """
     add_loan("mary", 200, 5)
     assert client.patch(endpoint_of(1), auth=("mary", "666"), data={
         "amount": 10
@@ -18,6 +28,9 @@ def test_repay_success(client):
 
 
 def test_repay_missing(client):
+    """
+    Test a repayment with missing required data
+    """
     assert client.patch(endpoint_of(1), auth=("mary", "666")).status_code == 400
 
 

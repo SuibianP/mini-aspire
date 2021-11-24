@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Loan application request
+"""
+
 from flask import Blueprint, current_app
 from flask_restx import Resource, Api, reqparse
 
@@ -18,6 +22,9 @@ loan_api = Api(loan_blueprint, authorizations={
 @loan_api.response(401, 'Not authenticated')
 @loan_api.response(400, 'Parameter error')
 class Loan(Resource):
+    """
+    Loan handling
+    """
     post_parser = reqparse.RequestParser()
     post_parser.add_argument('amount', type=int, required=True, help='The total amount of loan')
     post_parser.add_argument('term', type=int, required=True, help='The loan term')

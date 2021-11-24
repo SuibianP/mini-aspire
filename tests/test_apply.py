@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+Test loan application functionalities
+"""
+
 ENDPOINT = "/loan"
 
 
 def test_apply_success(client):
+    """
+    Test successful application
+    """
     assert client.post(ENDPOINT, auth=("mary", "666"), data={
         "amount": 50,
         "term": 10
