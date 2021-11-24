@@ -1,0 +1,4 @@
+[MASTER]
+
+load-plugins=pylint_flask_sqlalchemy, pylint_flask, pylint_sqlalchemy, pylint_pytest
+
