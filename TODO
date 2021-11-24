@@ -1,0 +1,11 @@
+OpenAPI documentation is not working properly with multiple blueprints.
+This is a feature flaw in flask-restx since namespaces is also not
+suitable for this usage. Squeezing both endpoints into one file is also
+not elegant. Will open an issue there.
+
+sqlalchemy_utils.DateRangeType has a bug in its stringification format
+that makes it not usable on non-Postgres DBs. PR opened there, awaiting
+review.
+
+Configuration files should be respected so that it is possible to
+override e.g. the location of database.
