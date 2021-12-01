@@ -21,6 +21,11 @@ class LoanPolicy
         return false;
     }
 
+    private function sameUser(User $user, Loan $loan)
+    {
+        return $user->id == $loan->user_id;
+    }
+
     /**
      * Determine whether the user can view the model.
      *
@@ -30,10 +35,7 @@ class LoanPolicy
      */
     public function view(User $user, Loan $loan)
     {
-        if ($user->id == $loan->user_id) {
-            return true;
-        }
-        return false;
+        return $this->sameUser($user, $loan);
     }
 
     /**
@@ -44,7 +46,7 @@ class LoanPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -56,7 +58,7 @@ class LoanPolicy
      */
     public function update(User $user, Loan $loan)
     {
-        //
+        return $this->sameUser($user, $loan);
     }
 
     /**
@@ -68,7 +70,7 @@ class LoanPolicy
      */
     public function delete(User $user, Loan $loan)
     {
-        //
+        return false;
     }
 
     /**
@@ -80,7 +82,7 @@ class LoanPolicy
      */
     public function restore(User $user, Loan $loan)
     {
-        //
+        return false;
     }
 
     /**
@@ -92,6 +94,6 @@ class LoanPolicy
      */
     public function forceDelete(User $user, Loan $loan)
     {
-        //
+        return false;
     }
 }
