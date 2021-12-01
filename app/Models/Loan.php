@@ -10,7 +10,6 @@ class Loan extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = [
-        'id',
         'user_id',
         'amount',
         'due',
